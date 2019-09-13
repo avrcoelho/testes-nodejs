@@ -1,0 +1,18 @@
+'version': '3'
+
+services:
+  db:
+    image: mysql:latest
+    container_name: db
+    volumes:
+      - /var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      - MYSQL_USER=root
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=modulotests
+    ports:
+      - 3306:3306
+networks:
+  app-network:
+    external: true
